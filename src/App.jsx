@@ -7,19 +7,17 @@ import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 
 const App = () => {
-  return (<div>
-        <div className="bg-slate-900">
-          <Navbar/>
-        </div>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/cart" element={<Cart/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<SignUp/>} />
-
-
-        </Routes>
-  </div>)
+  return (<main>
+    <div className="bg-slate-900 fixed top-0 w-screen">
+      <Navbar />
+    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+    </Routes>
+  </main>)
 };
 
 export default App;
