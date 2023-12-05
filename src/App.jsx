@@ -5,6 +5,10 @@ import Home from "./pages/Home"
 import Cart from "./pages/Cart"
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
+import Footer from "./components/Footer";
+import Products from "./pages/Products";
+import BirthStones from "./pages/BirthStones";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   return (<main>
@@ -12,11 +16,21 @@ const App = () => {
       <Navbar />
     </div>
     <Routes>
+      
       <Route path="/" element={<Home />} />
+      <Route path="/Products" element={<Products />} />
+      <Route path="/Birthstones" element={<BirthStones />} />
+      <Route path="/AboutUs" element={<AboutUs />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      
     </Routes>
+    <div className="mt-8">
+    <Footer />
+    </div>
+    
+    
   </main>)
 };
 

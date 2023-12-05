@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import logo from "../../assets/logo.jpeg"
+import logo from "../../assets/logo.png"
 import { publicApi } from '../../utils/server.utils';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -27,11 +27,12 @@ export default function Login() {
             navigate('/')
             toast.success("Logged In successfully")
         }).catch((err) => {
+            toast.error(err.message)
             console.log(err);
         }).finally(() => setLoading(false))
     }
     return (
-        <div className='w-screen h-screen flex flex-col gap-10 items-center justify-center'>
+        <div className='w-screen bg-cream text-brown h-screen font-coro flex flex-col gap-10 mb-10 items-center justify-center'>
             <div>
                 <img width={200} src={logo} alt='Logo' />
             </div>
@@ -39,17 +40,17 @@ export default function Login() {
             <form onSubmit={handleSignin} method="post" className='w-[30%] flex flex-col gap-5'>
                 <div className='flex flex-col gap-1 '>
                     <label htmlFor='email'>Email</label>
-                    <input type="email" ref={mailRef} id="email" name="email" className='w-full py-1.5 px-2 rounded-md border-2 border-gray-500' />
+                    <input type="email" ref={mailRef} id="email" name="email" className='w-full py-1.5 px-2 rounded-md border-2 border-lightbrown' />
                 </div>
                 <div className='flex flex-col gap-1 '>
                     <label htmlFor='password'>Password</label>
-                    <input type="password" ref={passwordRef} id="password" name="password" className='w-full py-1.5 px-2 rounded-md border-2 border-gray-500' />
+                    <input type="password" ref={passwordRef} id="password" name="password" className='w-full py-1.5 px-2 rounded-md border-2 border-lightbrown' />
                 </div>
-                <button disabled={loading} type="submit" className='bg-black text-white rounded-md font-semibold px-3 py-2'>
+                <button disabled={loading} type="submit" className='bg-brown text-white rounded-md font-semibold px-3 py-2 my-3' >
                     Submit
                 </button>
             </form>
-            <p>Not having an account? <Link to={"/signup"} className='font-bold text-slate-900'>SignUp</Link></p>
+            <p>Not having an account? <Link to={"/signup"} className='font-bold text-brown'>SignUp</Link></p>
         </div>
     )
 }
